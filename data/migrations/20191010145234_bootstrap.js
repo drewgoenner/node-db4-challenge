@@ -16,6 +16,10 @@ exports.up = function(knex) {
         .increments();
 
         tbl
+        .integer('step')
+        .notNullable()
+        
+        tbl
         .text('instructions')
         .notNullable();
 
@@ -71,7 +75,7 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
 
-    return knext.schema
+    return knex.schema
     .dropTableIfExists('ingredient_quantities')
     .dropTableIfExists('ingredients')
     .dropTableIfExists('instructions')
